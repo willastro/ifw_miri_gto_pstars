@@ -1,2 +1,3 @@
 # ifw_miri_gto_pstars
-  .. image:: https://mybinder.org/badge.svg :target: https://mybinder.org/v2/gh/QISKit/qiskit-tutorial/master?filepath=index.ipynb
+  .. image:: https://mybinder.org/badge_logo.svg
+ :target: https://mybinder.org/v2/gh/willastro/ifw_miri_gto_pstars/HEAD

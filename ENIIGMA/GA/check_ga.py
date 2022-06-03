@@ -60,10 +60,10 @@ def top_five_raw(savepdf = False):
 	b5 = best[4]
 	
 	if savepdf == False:
-		string_c = 'pyevolve_graph.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-6'	
+		string_c = '../../../pyevolve_graph_ifw.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-6'	
 		os.system(string_c)
 	else:
-		string_c = 'pyevolve_graph.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-6'+' '+'-o'+' '+'graph_eniigma_top_five_raw'+' '+'-e'+' '+'pdf'	
+		string_c = '../../../pyevolve_graph_ifw.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-6'+' '+'-o'+' '+'graph_eniigma_top_five_raw'+' '+'-e'+' '+'pdf'	
 		os.system(string_c)
 
 def top_five_scaled(savepdf=False):
@@ -119,11 +119,11 @@ def top_five_scaled(savepdf=False):
 	b5 = best[4]
 	
 	if savepdf == False:
-		string_c = 'pyevolve_graph.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-7'	
+		string_c = '../../../pyevolve_graph_ifw.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-7'	
 		print(string_c)
 		os.system(string_c)
 	else:
-		string_c = 'pyevolve_graph.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-7'+' '+'-o'+' '+'graph_eniigma_top_five_scaled'+' '+'-e'+' '+'pdf'	
+		string_c = '../../../pyevolve_graph_ifw.py -i'+' '+'eniigma_'+str(int(b1))+','+'eniigma_'+str(int(b2))+',''eniigma_'+str(int(b3))+',''eniigma_'+str(int(b4))+',''eniigma_'+str(int(b5))+' '+'-7'+' '+'-o'+' '+'graph_eniigma_top_five_scaled'+' '+'-e'+' '+'pdf'	
 		os.system(string_c)
 
 def check(combination=1, option=-1, savepdf = False):
@@ -180,9 +180,9 @@ def check(combination=1, option=-1, savepdf = False):
 	#os.chdir(DIR+DIR2)
 	
 	if savepdf == False:
-		string_c = 'pyevolve_graph.py -i'+' '+'eniigma_'+str(combination)+' '+str(option)+' '+'-m'	
+		string_c = '../../../pyevolve_graph_ifw.py -i'+' '+'eniigma_'+str(combination)+' '+str(option)+' '+'-m'	
 		os.system(string_c)
 	else:
-		string_c = 'pyevolve_graph.py -i'+' '+'eniigma_'+str(combination)+' '+str(option)+' '+'-m'+' '+'-o'+' '+'graph_eniigma'+' '+'-e'+' '+'pdf'
+		string_c = '../../../pyevolve_graph_ifw.py -i'+' '+'eniigma_'+str(combination)+' '+str(option)+' '+'-m'+' '+'-o'+' '+'graph_eniigma'+' '+'-e'+' '+'pdf'
 		os.system(string_c)
 

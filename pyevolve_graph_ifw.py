@@ -1,38 +1,39 @@
-#!/usr/bin/python
+#!/Users/willrocha/anaconda3/bin/python3.9
 
 # This code is part of Pyevolve.
 # It requires matplotlib v.0.98.5.0+
 from optparse import OptionParser
 from optparse import OptionGroup
 
+
 def graph_pop_heatmap_raw(pop, minimize, colormap="jet", filesave=None):
-    pylab.imshow(pop, aspect="auto", interpolation="gaussian", cmap=matplotlib.cm.__dict__[colormap])
-    pylab.title("Plot of pop. raw scores along the generations")
-    pylab.xlabel('Population')
-    pylab.ylabel('Generations')
-    pylab.grid(True)
-    pylab.colorbar()
+    plt.imshow(pop, aspect="auto", interpolation="gaussian", cmap=matplotlib.cm.__dict__[colormap])
+    plt.title("Plot of pop. raw scores along the generations")
+    plt.xlabel('Population')
+    plt.ylabel('Generations')
+    plt.grid(True)
+    plt.colorbar()
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_pop_heatmap_fitness(pop, minimize, colormap="jet", filesave=None):
-    pylab.imshow(pop, aspect="equal", interpolation="gaussian", cmap=matplotlib.cm.__dict__[colormap])
-    pylab.title("Plot of pop. fitness scores along the generations")
-    pylab.xlabel('Population')
-    pylab.ylabel('Generations')
-    pylab.grid(True)
-    pylab.colorbar()
+    plt.imshow(pop, aspect="equal", interpolation="gaussian", cmap=matplotlib.cm.__dict__[colormap])
+    plt.title("Plot of pop. fitness scores along the generations")
+    plt.xlabel('Population')
+    plt.ylabel('Generations')
+    plt.grid(True)
+    plt.colorbar()
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_diff_raw(pop, minimize, filesave=None):
@@ -46,49 +47,49 @@ def graph_diff_raw(pop, minimize, filesave=None):
         diff_raw_y.append(it["rawMax"] - it["rawMin"])
         diff_fit_y.append(it["fitMax"] - it["fitMin"])
 
-    pylab.figure()
-    pylab.subplot(211)
+    plt.figure()
+    plt.subplot(211)
 
-    pylab.plot(x, diff_raw_y, "g", label="Raw difference", linewidth=1.2)
-    pylab.fill_between(x, diff_raw_y, color="g", alpha=0.1)
+    plt.plot(x, diff_raw_y, "g", label="Raw difference", linewidth=1.2)
+    plt.fill_between(x, diff_raw_y, color="g", alpha=0.1)
 
     diff_raw_max = max(diff_raw_y)
     gen_max_raw = x[diff_raw_y.index(diff_raw_max)]
 
-    pylab.annotate("Maximum (%.2f)" % (diff_raw_max,), xy=(gen_max_raw, diff_raw_max), xycoords='data',
+    plt.annotate("Maximum (%.2f)" % (diff_raw_max,), xy=(gen_max_raw, diff_raw_max), xycoords='data',
                    xytext=(-150, -20), textcoords='offset points',
                    arrowprops=dict(arrowstyle="->", connectionstyle="arc"))
 
-    pylab.xlabel("Generation (#)")
-    pylab.ylabel("Raw difference")
-    pylab.title("Plot of evolution identified by '%s'" % (options.identify))
+    plt.xlabel("Generation (#)")
+    plt.ylabel("Raw difference")
+    plt.title("Plot of evolution identified by '%s'" % (options.identify))
 
-    pylab.grid(True)
-    pylab.legend(prop=FontProperties(size="smaller"))
+    plt.grid(True)
+    plt.legend(prop=FontProperties(size="smaller"))
 
-    pylab.subplot(212)
+    plt.subplot(212)
 
-    pylab.plot(x, diff_fit_y, "b", label="Fitness difference", linewidth=1.2)
-    pylab.fill_between(x, diff_fit_y, color="b", alpha=0.1)
+    plt.plot(x, diff_fit_y, "b", label="Fitness difference", linewidth=1.2)
+    plt.fill_between(x, diff_fit_y, color="b", alpha=0.1)
 
     diff_fit_max = max(diff_fit_y)
     gen_max_fit = x[diff_fit_y.index(diff_fit_max)]
 
-    pylab.annotate("Maximum (%.2f)" % (diff_fit_max,), xy=(gen_max_fit, diff_fit_max), xycoords='data',
+    plt.annotate("Maximum (%.2f)" % (diff_fit_max,), xy=(gen_max_fit, diff_fit_max), xycoords='data',
                    xytext=(-150, -20), textcoords='offset points',
                    arrowprops=dict(arrowstyle="->", connectionstyle="arc"))
 
-    pylab.xlabel("Generation (#)")
-    pylab.ylabel("Fitness difference")
+    plt.xlabel("Generation (#)")
+    plt.ylabel("Fitness difference")
 
-    pylab.grid(True)
-    pylab.legend(prop=FontProperties(size="smaller"))
+    plt.grid(True)
+    plt.legend(prop=FontProperties(size="smaller"))
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_maxmin_raw(pop, minimize, filesave=None):
@@ -105,14 +106,14 @@ def graph_maxmin_raw(pop, minimize, filesave=None):
         std_dev_y.append(it["rawDev"])
         avg_y.append(it["rawAve"])
 
-    pylab.figure()
+    plt.figure()
 
-    pylab.plot(x, max_y, "g", label="Max raw", linewidth=1.2)
-    pylab.plot(x, min_y, "r", label="Min raw", linewidth=1.2)
-    pylab.plot(x, avg_y, "b", label="Avg raw", linewidth=1.2)
-    pylab.plot(x, std_dev_y, "k", label="Std Dev raw", linewidth=1.2)
+    plt.plot(x, max_y, "g", label="Max raw", linewidth=1.2)
+    plt.plot(x, min_y, "r", label="Min raw", linewidth=1.2)
+    plt.plot(x, avg_y, "b", label="Avg raw", linewidth=1.2)
+    plt.plot(x, std_dev_y, "k", label="Std Dev raw", linewidth=1.2)
 
-    pylab.fill_between(x, min_y, max_y, color="g", alpha=0.1, label="Diff max/min")
+    plt.fill_between(x, min_y, max_y, color="g", alpha=0.1, label="Diff max/min")
 
     if minimize:
         raw_max = min(min_y)
@@ -135,30 +136,30 @@ def graph_maxmin_raw(pop, minimize, filesave=None):
     else:
         annot_label = "Maximum (%.2f)" % (raw_max,)
 
-    pylab.annotate(annot_label, xy=(gen_max, raw_max), xycoords='data',
+    plt.annotate(annot_label, xy=(gen_max, raw_max), xycoords='data',
                    xytext=(8, 15), textcoords='offset points',
                    arrowprops=dict(arrowstyle="->", connectionstyle="arc"))
 
-    pylab.annotate("Min StdDev (%.2f)" % (min_std,), xy=(gen_min_std, min_std), xycoords='data',
+    plt.annotate("Min StdDev (%.2f)" % (min_std,), xy=(gen_min_std, min_std), xycoords='data',
                    xytext=(8, 15), textcoords='offset points',
                    arrowprops=dict(arrowstyle="->", connectionstyle="arc"))
 
-    pylab.annotate("Max StdDev (%.2f)" % (max_std,), xy=(gen_max_std, max_std), xycoords='data',
+    plt.annotate("Max StdDev (%.2f)" % (max_std,), xy=(gen_max_std, max_std), xycoords='data',
                    xytext=(8, 15), textcoords='offset points',
                    arrowprops=dict(arrowstyle="->", connectionstyle="arc"))
 
-    pylab.xlabel("Generation (#)")
-    pylab.ylabel("Raw score")
-    pylab.title("Plot of evolution identified by '%s' (raw scores)" % (options.identify))
+    plt.xlabel("Generation (#)")
+    plt.ylabel("Raw score")
+    plt.title("Plot of evolution identified by '%s' (raw scores)" % (options.identify))
 
-    pylab.grid(True)
-    pylab.legend(prop=FontProperties(size="smaller"))
+    plt.grid(True)
+    plt.legend(prop=FontProperties(size="smaller"))
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_maxmin_fitness(pop, minimize, filesave=None):
@@ -173,12 +174,12 @@ def graph_maxmin_fitness(pop, minimize, filesave=None):
         min_y.append(it["fitMin"])
         avg_y.append(it["fitAve"])
 
-    pylab.figure()
-    pylab.plot(x, max_y, "g", label="Max fitness")
-    pylab.plot(x, min_y, "r", label="Min fitness")
-    pylab.plot(x, avg_y, "b", label="Avg fitness")
+    plt.figure()
+    plt.plot(x, max_y, "g", label="Max fitness")
+    plt.plot(x, min_y, "r", label="Min fitness")
+    plt.plot(x, avg_y, "b", label="Avg fitness")
 
-    pylab.fill_between(x, min_y, max_y, color="g", alpha=0.1, label="Diff max/min")
+    plt.fill_between(x, min_y, max_y, color="g", alpha=0.1, label="Diff max/min")
 
     if minimize:
         raw_max = min(min_y)
@@ -195,21 +196,21 @@ def graph_maxmin_fitness(pop, minimize, filesave=None):
     else:
         annot_label = "Maximum (%.2f)" % (raw_max,)
 
-    pylab.annotate(annot_label, xy=(gen_max, raw_max), xycoords='data',
+    plt.annotate(annot_label, xy=(gen_max, raw_max), xycoords='data',
                    xytext=(8, 15), textcoords='offset points',
                    arrowprops=dict(arrowstyle="->", connectionstyle="arc"))
 
-    pylab.xlabel("Generation (#)")
-    pylab.ylabel("Fitness score")
-    pylab.title("Plot of evolution identified by '%s' (fitness scores)" % (options.identify))
-    pylab.grid(True)
-    pylab.legend(prop=FontProperties(size="smaller"))
+    plt.xlabel("Generation (#)")
+    plt.ylabel("Fitness score")
+    plt.title("Plot of evolution identified by '%s' (fitness scores)" % (options.identify))
+    plt.grid(True)
+    plt.legend(prop=FontProperties(size="smaller"))
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_errorbars_raw(pop, minimize, filesave=None):
@@ -227,18 +228,18 @@ def graph_errorbars_raw(pop, minimize, filesave=None):
         yerr_max.append(ymax)
         yerr_min.append(ymin)
 
-    pylab.figure()
-    pylab.errorbar(x, y, [yerr_min, yerr_max], ecolor="g")
-    pylab.xlabel('Generation (#)')
-    pylab.ylabel('Raw score Min/Avg/Max')
-    pylab.title("Plot of evolution identified by '%s' (raw scores)" % (options.identify))
-    pylab.grid(True)
+    plt.figure()
+    plt.errorbar(x, y, [yerr_min, yerr_max], ecolor="g")
+    plt.xlabel('Generation (#)')
+    plt.ylabel('Raw score Min/Avg/Max')
+    plt.title("Plot of evolution identified by '%s' (raw scores)" % (options.identify))
+    plt.grid(True)
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_errorbars_fitness(pop, minimize, filesave=None):
@@ -256,26 +257,26 @@ def graph_errorbars_fitness(pop, minimize, filesave=None):
         yerr_max.append(ymax)
         yerr_min.append(ymin)
 
-    pylab.figure()
-    pylab.errorbar(x, y, [yerr_min, yerr_max], ecolor="g")
-    pylab.xlabel('Generation (#)')
-    pylab.ylabel('Fitness score Min/Avg/Max')
-    pylab.title("Plot of evolution identified by '%s' (fitness scores)" % (options.identify))
+    plt.figure()
+    plt.errorbar(x, y, [yerr_min, yerr_max], ecolor="g")
+    plt.xlabel('Generation (#)')
+    plt.ylabel('Fitness score Min/Avg/Max')
+    plt.title("Plot of evolution identified by '%s' (fitness scores)" % (options.identify))
 
-    pylab.grid(True)
+    plt.grid(True)
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_compare_raw(pop, minimize, id_list, filesave=None):
     colors_list = ["g", "b", "r", "k", "m", "y"]
     index = 0
 
-    pylab.figure()
+    plt.figure()
 
     for it_out in pop:
         x = []
@@ -288,34 +289,34 @@ def graph_compare_raw(pop, minimize, id_list, filesave=None):
             min_y.append(it["rawMin"])
 
         if minimize:
-            pylab.plot(x, max_y, colors_list[index], linewidth=0.05)
-            pylab.plot(x, min_y, colors_list[index], label="Raw min (%s)" % (id_list[index],), linewidth=1.3)
+            plt.plot(x, max_y, colors_list[index], linewidth=0.05)
+            plt.plot(x, min_y, colors_list[index], label="Raw min (%s)" % (id_list[index],), linewidth=1.3)
         else:
-            pylab.plot(x, max_y, colors_list[index], label="Raw max (%s)" % (id_list[index],), linewidth=1.3)
-            pylab.plot(x, min_y, colors_list[index], linewidth=0.05)
+            plt.plot(x, max_y, colors_list[index], label="Raw max (%s)" % (id_list[index],), linewidth=1.3)
+            plt.plot(x, min_y, colors_list[index], linewidth=0.05)
 
-        pylab.fill_between(x, min_y, max_y, color=colors_list[index], alpha=0.06,)
+        plt.fill_between(x, min_y, max_y, color=colors_list[index], alpha=0.06,)
 
         index += 1
 
-    pylab.xlabel("Generation (#)")
-    pylab.ylabel("Raw score")
-    pylab.title("Plot of evolution identified by '%s' (raw scores)" % ('many',))
-    pylab.grid(True)
-    pylab.legend(prop=FontProperties(size="smaller"))
+    plt.xlabel("Generation (#)")
+    plt.ylabel("Raw score")
+    plt.title("Plot of evolution identified by '%s' (raw scores)" % ('many',))
+    plt.grid(True)
+    plt.legend(prop=FontProperties(size="smaller"))
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 def graph_compare_fitness(pop, minimize, id_list, filesave=None):
     colors_list = ["g", "b", "r", "k", "m", "y"]
     index = 0
 
-    pylab.figure()
+    plt.figure()
 
     for it_out in pop:
         x = []
@@ -328,28 +329,27 @@ def graph_compare_fitness(pop, minimize, id_list, filesave=None):
             min_y.append(it["fitMin"])
 
         if minimize:
-            pylab.plot(x, max_y, colors_list[index], linewidth=0.05)
-            pylab.plot(x, min_y, colors_list[index], label="Fitness min (%s)" % (id_list[index],), linewidth=1.3)
+            plt.plot(x, max_y, colors_list[index], linewidth=0.05)
+            plt.plot(x, min_y, colors_list[index], label="Fitness min (%s)" % (id_list[index],), linewidth=1.3)
         else:
-            pylab.plot(x, max_y, colors_list[index], label="Fitness max (%s)" % (id_list[index],), linewidth=1.3)
-            pylab.plot(x, min_y, colors_list[index], linewidth=0.05)
+            plt.plot(x, max_y, colors_list[index], label="Fitness max (%s)" % (id_list[index],), linewidth=1.3)
+            plt.plot(x, min_y, colors_list[index], linewidth=0.05)
 
-        pylab.fill_between(x, min_y, max_y, color=colors_list[index], alpha=0.06,)
+        plt.fill_between(x, min_y, max_y, color=colors_list[index], alpha=0.06,)
 
         index += 1
 
-    
-    pylab.xlabel("Generation (#)")
-    pylab.ylabel("Fitness score")
-    pylab.title("Plot of evolution identified by '%s' (fitness scores)" % ('many',))
-    pylab.grid(True)
-    pylab.legend(prop=FontProperties(size="smaller"))
+    plt.xlabel("Generation (#)")
+    plt.ylabel("Fitness score")
+    plt.title("Plot of evolution identified by '%s' (fitness scores)" % ('many',))
+    plt.grid(True)
+    plt.legend(prop=FontProperties(size="smaller"))
 
     if filesave:
-        pylab.savefig(filesave)
+        plt.savefig(filesave)
         print("Graph saved to %s file !" % (filesave,))
     else:
-        pylab.show()
+        plt.show()
 
 
 if __name__ == "__main__":
@@ -448,7 +448,8 @@ if __name__ == "__main__":
         print("Database file '%s' not found !" % (options.dbfile, ))
         exit()
 
-    import pylab
+    #import plt
+    import matplotlib.pyplot as plt
     from matplotlib.font_manager import FontProperties
     import matplotlib.cm
     import sqlite3

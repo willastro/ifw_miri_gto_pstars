@@ -1,0 +1,16 @@
+<!-- Automatically generated information file for csv file fitting_results/fitres_w33a.csv-->
+<INFO file="fitting_results/fitres_w33a.csv">
+<MODELNAME>W33A</MODELNAME>
+<HAVEPSF>False</HAVEPSF>
+<RMS_DATA>3.0</RMS_DATA>
+<NUMBER_FUNCTIONS>1</NUMBER_FUNCTIONS>
+<FUNCTION name="CO2">
+<TYPE>empirical</TYPE>
+<DETECTION>False</DETECTION>
+<CSV_COLUMN>3</CSV_COLUMN>
+<NUMBER_PARAMS>1</NUMBER_PARAMS>
+<PARAMETER name="mul">
+<VALUE>0.7936212659088475</VALUE>
+</PARAMETER>
+</FUNCTION>
+</INFO>

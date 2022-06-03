@@ -1,0 +1,31 @@
+<!-- Automatically generated information file for csv file fitting_results/example_fitres.csv-->
+<INFO file="fitting_results/example_fitres.csv">
+<MODELNAME>Example observational data</MODELNAME>
+<HAVEPSF>False</HAVEPSF>
+<RMS_DATA>1.0</RMS_DATA>
+<NUMBER_FUNCTIONS>2</NUMBER_FUNCTIONS>
+<FUNCTION name="Example empirical data">
+<TYPE>empirical</TYPE>
+<DETECTION>False</DETECTION>
+<CSV_COLUMN>3</CSV_COLUMN>
+<NUMBER_PARAMS>1</NUMBER_PARAMS>
+<PARAMETER name="mul">
+<VALUE>1.1538951780398188</VALUE>
+</PARAMETER>
+</FUNCTION>
+<FUNCTION name="Example Gaussian">
+<TYPE>gaussian</TYPE>
+<DETECTION>False</DETECTION>
+<CSV_COLUMN>4</CSV_COLUMN>
+<NUMBER_PARAMS>3</NUMBER_PARAMS>
+<PARAMETER name="peak">
+<VALUE>0.8918092622764102</VALUE>
+</PARAMETER>
+<PARAMETER name="pos">
+<VALUE>3076.2912094911217</VALUE>
+</PARAMETER>
+<PARAMETER name="fwhm">
+<VALUE>378.10902778703564</VALUE>
+</PARAMETER>
+</FUNCTION>
+</INFO>

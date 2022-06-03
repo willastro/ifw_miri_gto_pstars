@@ -1,0 +1,25 @@
+<!-- Automatically generated information file for csv file fitting_results/fitres_elias_29.csv-->
+<INFO file="fitting_results/fitres_elias_29.csv">
+<MODELNAME>Elias_29</MODELNAME>
+<HAVEPSF>False</HAVEPSF>
+<RMS_DATA>3.0</RMS_DATA>
+<NUMBER_FUNCTIONS>2</NUMBER_FUNCTIONS>
+<FUNCTION name="H2O">
+<TYPE>empirical</TYPE>
+<DETECTION>False</DETECTION>
+<CSV_COLUMN>3</CSV_COLUMN>
+<NUMBER_PARAMS>1</NUMBER_PARAMS>
+<PARAMETER name="mul">
+<VALUE>0.7832282916415547</VALUE>
+</PARAMETER>
+</FUNCTION>
+<FUNCTION name="CO2">
+<TYPE>empirical</TYPE>
+<DETECTION>False</DETECTION>
+<CSV_COLUMN>4</CSV_COLUMN>
+<NUMBER_PARAMS>1</NUMBER_PARAMS>
+<PARAMETER name="mul">
+<VALUE>0.21855860298930052</VALUE>
+</PARAMETER>
+</FUNCTION>
+</INFO>

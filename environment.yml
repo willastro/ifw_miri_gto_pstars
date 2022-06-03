@@ -9,7 +9,3 @@ dependencies:
   - sh
   - lmfit
   - astropy
-  - pip
-  - pip:
-    - lxml
-    - csv

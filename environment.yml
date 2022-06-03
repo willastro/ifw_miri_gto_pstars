@@ -8,3 +8,6 @@ dependencies:
   - scipy
   - sh
   - lmfit
+  - astropy
+  - lxml
+  - csv

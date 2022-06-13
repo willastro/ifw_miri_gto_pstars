@@ -14,7 +14,7 @@ you'll find the class :class:`FunctionSlot.FunctionSlot`, which is the slot clas
 from random import uniform as rand_uniform
 #from types import BooleanType
 
-import Util
+from . import Util
 
 class FunctionSlot(object):
    """ FunctionSlot Class - The function slot
